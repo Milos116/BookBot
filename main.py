@@ -10,21 +10,19 @@ def get_book_text(file_path):
 def main():
 
     args = sys.argv
-
     if len(args) < 2:
         print ("Requiers path of the book you wish to be analyzed (as argument)")
         sys.exit(1)
-
     file_path = args[1]
 
     content = get_book_text(file_path)
 
-    chars = character_count(content)
+    chars_dict = character_count(content)
 
-    sorted_chars = sort_char_count(chars)
+    sorted_chars = sort_char_count(chars_dict)
 
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt")
+    print(f"Analyzing book found at {file_path}")
     print("----------- Word Count ----------")
     word_count(content)
     print("--------- Character Count -------")
